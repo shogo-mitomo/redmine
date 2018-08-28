@@ -7,3 +7,6 @@
 [submodule "plugins/redmine_issue_templates"]
 	path = plugins/redmine_issue_templates
 	url = git@github.com:akiko-pusu/redmine_issue_templates.git
+[submodule "plugins/redmine_issues_tree"]
+	path = plugins/redmine_issues_tree
+	url = git@github.com:Loriowar/redmine_issues_tree.git
