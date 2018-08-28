@@ -67,7 +67,7 @@ module Redmine
         #     macro :my_macro do |obj, args|
         #       "My macro output"
         #     end
-        #   
+        #
         #     desc "This is my macro that accepts a block of text"
         #     macro :my_macro do |obj, args, text|
         #       "My macro output"
@@ -81,7 +81,7 @@ module Redmine
         #
         # Options:
         # * :desc - A description of the macro
-        # * :parse_args => false - Disables arguments parsing (the whole arguments 
+        # * :parse_args => false - Disables arguments parsing (the whole arguments
         #   string is passed to the macro)
         #
         # Macro blocks accept 2 or 3 arguments:
@@ -89,7 +89,7 @@ module Redmine
         # * args: macro arguments
         # * text: the block of text given to the macro (should be present only if the
         #   macro accepts a block of text). text is a String or nil if the macro is
-        #   invoked without a block of text.  
+        #   invoked without a block of text.
         #
         # Examples:
         # By default, when the macro is invoked, the comma separated list of arguments
@@ -162,7 +162,7 @@ module Redmine
       # Builtin macros
       desc "Sample macro."
       macro :hello_world do |obj, args, text|
-        h("Hello world! Object: #{obj.class.name}, " + 
+        h("Hello world! Object: #{obj.class.name}, " +
           (args.empty? ? "Called with no argument" : "Arguments: #{args.join(', ')}") +
           " and " + (text.present? ? "a #{text.size} bytes long block of text." : "no block of text.")
         )
@@ -250,6 +250,11 @@ module Redmine
         else
           raise "Attachment #{filename} not found"
         end
+      end
+
+      desc 'raw <br> tag'
+      macro :br do |_obj, _args|
+        raw '<br>'
       end
     end
   end
