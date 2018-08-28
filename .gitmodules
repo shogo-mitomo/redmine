@@ -1,0 +1,3 @@
+[submodule "public/themes/PurpleMine2"]
+	path = public/themes/PurpleMine2
+	url = git@github.com:mrliptontea/PurpleMine2.git
