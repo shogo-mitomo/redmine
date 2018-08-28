@@ -685,7 +685,7 @@ class Issue < ActiveRecord::Base
   private :workflow_rule_by_attribute
 
   def done_ratio
-    if Issue.use_status_for_done_ratio? && status && status.default_done_ratio
+    if Issue.use_status_for_done_ratio? && status && status.default_done_ratio && !self.children?
       status.default_done_ratio
     else
       read_attribute(:done_ratio)
@@ -798,7 +798,7 @@ class Issue < ActiveRecord::Base
   # Set the done_ratio using the status if that setting is set.  This will keep the done_ratios
   # even if the user turns off the setting later
   def update_done_ratio_from_issue_status
-    if Issue.use_status_for_done_ratio? && status && status.default_done_ratio
+    if Issue.use_status_for_done_ratio? && status && status.default_done_ratio && !self.children?
       self.done_ratio = status.default_done_ratio
     end
   end
@@ -1697,7 +1697,7 @@ class Issue < ActiveRecord::Base
 
       if p.done_ratio_derived?
         # done ratio = average ratio of children weighted with their total estimated hours
-        unless Issue.use_status_for_done_ratio? && p.status && p.status.default_done_ratio
+        unless Issue.use_status_for_done_ratio? && p.status && p.status.default_done_ratio && !self.children?
           children = p.children.to_a
           if children.any?
             child_with_total_estimated_hours = children.select {|c| c.total_estimated_hours.to_f > 0.0}
