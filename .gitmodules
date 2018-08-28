@@ -10,3 +10,6 @@
 [submodule "plugins/redmine_issues_tree"]
 	path = plugins/redmine_issues_tree
 	url = git@github.com:Loriowar/redmine_issues_tree.git
+[submodule "plugins/redmine_local_avatars"]
+	path = plugins/redmine_local_avatars
+	url = git@github.com:ncoders/redmine_local_avatars.git
