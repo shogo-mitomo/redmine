@@ -4,6 +4,8 @@ PRD_FLAG = (ENV.fetch('RAILS_ENV') == 'production')
 if PRD_FLAG
   pidfile "#{APP_PATH}/tmp/pids/server.pid"
   bind    "unix://#{APP_PATH}/tmp/sockets/server.sock"
+
+  daemonize true
 end
 
 # Puma can serve each request in a thread from an internal thread pool.
