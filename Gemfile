@@ -86,6 +86,8 @@ else
   warn("Please configure your config/database.yml first")
 end
 
+gem 'puma'
+
 group :development do
   gem "rdoc", "~> 4.3"
   gem "yard"
