@@ -6,3 +6,4 @@ production:
       address: "localhost"
       port: 25
       domain: <%= ENV.fetch('RAILS_SMTP_DOMAIN') %>
+  rmagick_font_path: /usr/share/fonts/ipa-gothic/ipag.ttf
