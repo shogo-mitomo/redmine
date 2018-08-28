@@ -13,3 +13,6 @@
 [submodule "plugins/redmine_local_avatars"]
 	path = plugins/redmine_local_avatars
 	url = git@github.com:ncoders/redmine_local_avatars.git
+[submodule "plugins/redmine_slack"]
+	path = plugins/redmine_slack
+	url = git@github.com:sciyoshi/redmine-slack.git
